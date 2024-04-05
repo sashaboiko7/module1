@@ -9,3 +9,7 @@ def temp_file(tmp_path):
         f.write("Test line 2\n")
         f.write("Test line 3\n")
     return file_path
+
+def test_read_file_exists(temp_file):
+    lines = read_file(temp_file)
+    assert lines == ["Test line 1\n", "Test line 2\n", "Test line 3\n"]
