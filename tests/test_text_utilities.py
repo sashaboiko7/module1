@@ -19,4 +19,10 @@ def test_read_file_not_exists(tmp_path):
     lines = read_file(file_path)
     assert lines is None
 
-
+def test_write_to_file(tmp_path):
+    file_path = tmp_path / "output.txt"
+    lines = ["Test line 1\n", "Test line 2\n"]
+    write_to_file(file_path, lines)
+    with open(file_path, "r") as f:
+        content = f.readlines()
+    assert content == lines
